@@ -1,9 +1,16 @@
 import React from 'react';
-import { Image, ImageBackground, StyleSheet, View } from 'react-native';
-export default function Mood() {
+import { Image, StyleSheet, View } from 'react-native';
+export default function Mood({ mood, skin, lip }) {
     return (
         <View style={styles.container}>
-            <Image source={require('../images/Happy.png')} style={styles.img} />
+            <Image source={require("../images/" + mood + ".png")}
+                style={{
+                    backgroundColor: skin,
+                    width: '100%',
+                    height: '100%',
+                    resizeMode: 'contain',
+                    tintColor: lip,
+                }} />
         </View>
     )
 }
@@ -12,11 +19,4 @@ const styles = StyleSheet.create({
         flex: 1,
         justifyContent: 'center'
     },
-    img: {
-        width: '100%',
-        height: '100%',
-        resizeMode: 'contain',
-        backgroundColor: '#eac086',
-        tintColor: 'red',
-    }
 })
