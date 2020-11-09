@@ -6,7 +6,7 @@ import Mood from './components/Mood';
 export default function App() {
   return (
     <>
-      <Mood />
+      <Welcome />
     </>
   );
 }
