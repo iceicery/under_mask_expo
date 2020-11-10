@@ -14,7 +14,7 @@ export default function MoodMenu({ mood, changeMood }) {
 const styles = StyleSheet.create({
     button: {
         backgroundColor: colors.primary,
-        margin: 5,
+        margin: 2,
         borderRadius: 5,
         padding: 2,
         alignItems: 'center',
@@ -23,6 +23,6 @@ const styles = StyleSheet.create({
     },
     text: {
         color: colors.light,
-        fontSize: 20,
+        fontSize: 15,
     }
 })

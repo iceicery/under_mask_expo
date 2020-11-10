@@ -1,9 +1,14 @@
 import React from 'react';
 import { Image, StyleSheet, View } from 'react-native';
 export default function Mood({ mood, skin, lip }) {
+    const moodImg = {
+        Happy: require('../images/Happy.png'),
+        Sad: require('../images/Sad.png'),
+        Angry: require('../images/Angry.png'),
+    }
     return (
         <View style={styles.container}>
-            <Image source={require("../images/" + mood + ".png")}
+            <Image source={moodImg[mood]}
                 style={{
                     backgroundColor: skin,
                     width: '100%',

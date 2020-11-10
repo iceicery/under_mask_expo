@@ -1,5 +1,5 @@
 import React from 'react';
-import { Text, View, StyleSheet } from 'react-native';
+import { Text, View, StyleSheet, TouchableOpacity } from 'react-native';
 import colors from '../config/colors';
 import MoodMenu from './MoodMenu';
 import SkinMenu from './SkinMenu';
@@ -29,12 +29,14 @@ export default function Menu({ changeMood, changeSkin, changeLip }) {
                     return <LipMenu lip={item} key={i} changeLip={changeLip} />
                 })}
             </View>
+            <TouchableOpacity style={styles.button}><Text style={styles.buttontext}>Confrim</Text></TouchableOpacity>
         </View>
     )
 }
 
 const styles = StyleSheet.create({
     menu: {
+        flex: 2,
         backgroundColor: colors.dark,
     },
     container: {
@@ -45,8 +47,20 @@ const styles = StyleSheet.create({
         padding: 20,
     },
     text: {
-        fontSize: 30,
+        fontSize: 25,
         color: colors.light,
-        padding: 20,
+        paddingTop: 15,
+        paddingLeft: 15,
+    },
+    buttontext: {
+        fontSize: 25,
+        color: colors.light,
+        padding: 15,
+    },
+    button: {
+        alignItems: 'center',
+        color: colors.light,
+        backgroundColor: colors.primary,
+        borderRadius: 5,
     }
 })
