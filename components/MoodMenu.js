@@ -1,7 +1,6 @@
 import React from 'react';
 import { TouchableOpacity, Text, StyleSheet } from 'react-native';
 import colors from '../config/colors';
-
 export default function MoodMenu({ mood, changeMood }) {
     function onClick() {
         changeMood(mood);
@@ -22,6 +21,8 @@ const styles = StyleSheet.create({
 
     },
     text: {
+        margin: 0,
+        padding: 0,
         color: colors.light,
         fontSize: 15,
     }

@@ -1,14 +1,19 @@
+import { useNavigation } from '@react-navigation/native';
 import React from 'react';
-import { View, ImageBackground, Button, StyleSheet, Image, Text, TouchableOpacity } from 'react-native';
+import { View, ImageBackground, StyleSheet, Image, Text, TouchableOpacity } from 'react-native';
 import colors from '../config/colors.js';
 export default function Welcome() {
+    const navigation = useNavigation();
+    function toMenu() {
+        navigation.navigate('Menu');
+    }
     return (
         <ImageBackground source={require('../images/welcomeImg3.jpg')} style={styles.container}>
             <View style={styles.logoBox}>
                 <Image source={require('../images/undermasklogo.png')} style={styles.logo} />
                 <Text style={styles.text}>Show your mood under the mask.</Text>
             </View>
-            <TouchableOpacity style={styles.button}>
+            <TouchableOpacity style={styles.button} onPress={toMenu}>
                 <Text style={styles.text}>Let's go!</Text>
             </TouchableOpacity>
         </ImageBackground >
@@ -49,6 +54,8 @@ const styles = StyleSheet.create({
         width: 100,
         height: 50,
         borderRadius: 10,
+        borderColor: colors.light,
+        borderWidth: 1.5,
         backgroundColor: colors.primary,
     }
 

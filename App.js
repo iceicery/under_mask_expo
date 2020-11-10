@@ -1,9 +1,14 @@
 import React, { useState } from 'react';
-import { Button, SafeAreaView, ScrollView, StyleSheet, Text, View } from 'react-native';
+import { moodContext } from './contexts/moodContext';
 import Welcome from './components/Welcome';
 import Menu from './components/Menu';
 import Mood from './components/Mood';
 
+import 'react-native-gesture-handler';
+import { NavigationContainer } from '@react-navigation/native';
+import { createStackNavigator } from '@react-navigation/stack';
+
+const Stack = createStackNavigator();
 
 export default function App() {
   const [mood, setMood] = useState('Happy');
@@ -19,10 +24,15 @@ export default function App() {
     setLip(lip);
   }
   return (
-    <>
-      <Menu changeMood={changeMood} changeSkin={changeSkin} changeLip={changeLip} />
-      <Mood mood={mood} skin={skin} lip={lip} />
-    </>
+    <moodContext.Provider value={{ changeMood, changeSkin, changeLip, mood, skin, lip }}>
+      <NavigationContainer>
+        <Stack.Navigator initialRouteName="Welcome" screenOptions={{ headerShown: false }}>
+          <Stack.Screen name="Welcome" component={Welcome} />
+          <Stack.Screen name="Menu" component={Menu} />
+          <Stack.Screen name="Mood" component={Mood} />
+        </Stack.Navigator>
+      </NavigationContainer>
+    </moodContext.Provider>
   );
 }
 
