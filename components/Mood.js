@@ -1,6 +1,8 @@
 import React, { useContext } from 'react';
 import { Image, StyleSheet, View } from 'react-native';
 import { moodContext } from '../contexts/moodContext';
+//import useScreenOrientation from 'react-hook-screen-orientation'
+
 export default function Mood() {
     const moodData = useContext(moodContext);
     const moodImg = {
@@ -8,6 +10,8 @@ export default function Mood() {
         Sad: require('../images/Sad.png'),
         Angry: require('../images/Angry.png'),
     }
+    //const screenOrientation = useScreenOrientation();
+    //console.log(screenOrientation);
     return (
         <View style={styles.container}>
             <Image source={moodImg[moodData.mood]}
