@@ -6,7 +6,7 @@ import MoodMenu from './MoodMenu';
 import SkinMenu from './SkinMenu';
 import LipMenu from './LipMenu';
 import { useNavigation } from '@react-navigation/native';
-export default function Menu() {
+export default function DrawMenu() {
     const navigation = useNavigation();
     const moodData = useContext(moodContext);
     const mood = ['Happy', 'Angry', 'Sad'];

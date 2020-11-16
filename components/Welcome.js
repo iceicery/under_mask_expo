@@ -5,7 +5,7 @@ import colors from '../config/colors.js';
 export default function Welcome() {
     const navigation = useNavigation();
     function toMenu() {
-        navigation.navigate('Menu');
+        navigation.navigate('ThemeMenu');
     }
     return (
         <ImageBackground source={require('../images/welcomeImg3.jpg')} style={styles.container}>
