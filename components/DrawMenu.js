@@ -6,6 +6,7 @@ import MoodMenu from './MoodMenu';
 import SkinMenu from './SkinMenu';
 import LipMenu from './LipMenu';
 import { useNavigation } from '@react-navigation/native';
+import { useDimensions } from '@react-native-community/hooks';
 export default function DrawMenu() {
     const navigation = useNavigation();
     const moodData = useContext(moodContext);
@@ -21,8 +22,10 @@ export default function DrawMenu() {
     function toMood() {
         navigation.navigate('Mood');
     }
+    const { height, width } = useDimensions().window;
+    const islandscape = width > height;
     return (
-        <>
+        <View style={islandscape ? styles.landscape : styles.portrait}>
             <View style={styles.menu}>
                 <Text style={styles.text}>Choose your mood:</Text>
                 <View style={styles.container}>
@@ -54,11 +57,19 @@ export default function DrawMenu() {
                         tintColor: moodData.lip,
                     }} />
             </View>
-        </>
+        </View>
     )
 }
 
 const styles = StyleSheet.create({
+    landscape: {
+        flex: 1,
+        flexDirection: 'row',
+    },
+    portrait: {
+        flex: 1,
+        flexDirection: 'column',
+    },
     menu: {
         flex: 2,
         backgroundColor: colors.dark,

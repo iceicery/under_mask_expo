@@ -11,7 +11,6 @@ import 'react-native-gesture-handler';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 
-
 const Stack = createStackNavigator();
 
 export default function App() {
@@ -19,6 +18,8 @@ export default function App() {
   const [skin, setSkin] = useState('#fff');
   const [lip, setLip] = useState('#000');
   const [animal, setAnimal] = useState('beary');
+
+
   function changeMood(mood) {
     setMood(mood);
   }
