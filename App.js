@@ -5,11 +5,12 @@ import DrawMenu from './components/DrawMenu';
 import AnimalMenu from './components/AnimalMenu';
 import Animal from './components/Animal';
 import Mood from './components/Mood';
+import ThemeMenu from './components/ThemeMenu';
 
 import 'react-native-gesture-handler';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
-import ThemeMenu from './components/ThemeMenu';
+
 
 const Stack = createStackNavigator();
 
@@ -17,7 +18,6 @@ export default function App() {
   const [mood, setMood] = useState('Happy');
   const [skin, setSkin] = useState('#fff');
   const [lip, setLip] = useState('#000');
-  const [theme, setTheme] = useState('draw');
   const [animal, setAnimal] = useState('beary');
   function changeMood(mood) {
     setMood(mood);
@@ -28,14 +28,12 @@ export default function App() {
   function changeLip(lip) {
     setLip(lip);
   }
-  function changeTheme(theme) {
-    setTheme(theme);
-  }
+
   function changeAnimal(animal) {
     setAnimal(animal);
   }
   return (
-    <moodContext.Provider value={{ changeMood, changeSkin, changeLip, changeTheme, changeAnimal, mood, skin, lip, theme, animal }}>
+    <moodContext.Provider value={{ changeMood, changeSkin, changeLip, changeAnimal, mood, skin, lip, animal }}>
       <NavigationContainer>
         <Stack.Navigator initialRouteName="Welcome" screenOptions={{ headerShown: false }}>
           <Stack.Screen name="Welcome" component={Welcome} />

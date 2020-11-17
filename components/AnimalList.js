@@ -19,12 +19,12 @@ export default function AnimalList({ animal }) {
         <TouchableOpacity onPress={toTheAnimal}>
             <Image source={AnimalImg[animal]}
                 style={{
-                    width: '100px',
-                    height: '100px',
+                    width: 100,
+                    height: 100,
                     resizeMode: 'contain',
                     borderColor: '#fff',
-                    borderRadius: '10px',
-                    borderWidth: '1px',
+                    borderRadius: 10,
+                    borderWidth: 1,
                 }} />
         </TouchableOpacity>
     )

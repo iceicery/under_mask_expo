@@ -1,8 +1,7 @@
 import React, { useContext } from 'react';
 import { Image, StyleSheet, View } from 'react-native';
 import { moodContext } from '../contexts/moodContext';
-import useScreenOrientation from 'react-hook-screen-orientation'
-import { Directions } from 'react-native-gesture-handler';
+//import useScreenOrientation from 'react-hook-screen-orientation'
 
 export default function Animal() {
     const moodData = useContext(moodContext);
@@ -11,12 +10,12 @@ export default function Animal() {
         honeyTing: require('../images/honeyTing.jpg'),
         elsa: require('../images/elsa.jpg'),
     };
-    const screenOrientation = useScreenOrientation();
-    console.log(screenOrientation);
+    //const screenOrientation = useScreenOrientation();
     return (
         <View style={styles.container}>
             <Image source={AnimalImg[moodData.animal]}
-                style={screenOrientation === "portrait-primary" ? styles.portrait : styles.img} />
+                //style={screenOrientation === "portrait-primary" ? styles.portrait : styles.img} />
+                style={styles.img} />
         </View>
     )
 }

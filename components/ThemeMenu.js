@@ -1,13 +1,11 @@
-import React, { useContext } from 'react';
-import { useNavigation } from '@react-navigation/native';
-import { Text, View, StyleSheet, TouchableOpacity, Image } from 'react-native';
-import { moodContext } from '../contexts/moodContext';
+import React from 'react';
+import { Text, View, StyleSheet } from 'react-native';
 import colors from '../config/colors';
 import Theme from '../components/Theme';
 
+const themes = ['DrawMenu', 'AnimalMenu'];
+
 export default function ThemeMenu() {
-    const navigation = useNavigation();
-    const themes = ['DrawMenu', 'AnimalMenu'];
     return (
         <>
             <View style={styles.menu}>
