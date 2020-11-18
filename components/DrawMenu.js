@@ -10,7 +10,7 @@ import { useDimensions } from '@react-native-community/hooks';
 export default function DrawMenu() {
     const navigation = useNavigation();
     const moodData = useContext(moodContext);
-    const mood = ['Happy', 'Angry', 'Sad'];
+    const mood = ['Happy', 'Angry', 'Sad', 'Confused', 'Kiss', 'Laugh', 'Scared', 'Scream'];
     const skinTone = ['#ffe0bd', '#ffcd94', '#eac086', '#ffad60', '#ffe39f', '#fff', '#ffdbac', '#f1c27d', '#e0ac69', '#c68642', '#8d5524'
         , '#533317', '#774921', '#9B5F2B', '#BE7535', '#CF8C52', '  #D9A476', '#E3BC9A'];
     const lipColors = ['#000', '#ffbaba', '#ff7b7b', '#ff5252', '#ff0000', '#a70000', '#ee4035', '#f37736'];
@@ -18,7 +18,13 @@ export default function DrawMenu() {
         Happy: require('../images/Happy.png'),
         Sad: require('../images/Sad.png'),
         Angry: require('../images/Angry.png'),
+        Confused: require('../images/confused.png'),
+        Kiss: require('../images/kiss.png'),
+        Laugh: require('../images/laugh.png'),
+        Scared: require('../images/scared.png'),
+        Scream: require('../images/scream.png'),
     }
+
     function toMood() {
         navigation.navigate('Mood');
     }

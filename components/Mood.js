@@ -9,16 +9,30 @@ export default function Mood() {
         Happy: require('../images/Happy.png'),
         Sad: require('../images/Sad.png'),
         Angry: require('../images/Angry.png'),
+        Confused: require('../images/confused.png'),
+        Kiss: require('../images/kiss.png'),
+        Laugh: require('../images/laugh.png'),
+        Scared: require('../images/scared.png'),
+        Scream: require('../images/scream.png'),
     }
-    //const screenOrientation = useScreenOrientation();
-    //console.log(screenOrientation);
+    const noseImg = {
+        nose1: require('../images/nose.png'),
+        nose2: require('../images/nose2.png'),
+    }
+
     return (
         <View style={styles.container}>
+            <Image source={noseImg['nose2']}
+                style={{
+                    backgroundColor: moodData.skin,
+                    flex: 1,
+                    resizeMode: 'contain',
+                    tintColor: "#000",
+                }} />
             <Image source={moodImg[moodData.mood]}
                 style={{
                     backgroundColor: moodData.skin,
-                    width: '100%',
-                    height: '100%',
+                    flex: 2,
                     resizeMode: 'contain',
                     tintColor: moodData.lip,
                 }} />
