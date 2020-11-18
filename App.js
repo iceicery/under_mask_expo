@@ -15,6 +15,7 @@ const Stack = createStackNavigator();
 
 export default function App() {
   const [mood, setMood] = useState('Happy');
+  const [nose, setNose] = useState('None');
   const [skin, setSkin] = useState('#fff');
   const [lip, setLip] = useState('#000');
   const [animal, setAnimal] = useState('beary');
@@ -23,6 +24,11 @@ export default function App() {
   function changeMood(mood) {
     setMood(mood);
   }
+
+  function changeNose(nose) {
+    setNose(nose);
+  }
+
   function changeSkin(skin) {
     setSkin(skin);
   }
@@ -34,7 +40,7 @@ export default function App() {
     setAnimal(animal);
   }
   return (
-    <moodContext.Provider value={{ changeMood, changeSkin, changeLip, changeAnimal, mood, skin, lip, animal }}>
+    <moodContext.Provider value={{ changeMood, changeNose, changeSkin, changeLip, changeAnimal, mood, nose, skin, lip, animal }}>
       <NavigationContainer>
         <Stack.Navigator initialRouteName="Welcome" screenOptions={{ headerShown: false }}>
           <Stack.Screen name="Welcome" component={Welcome} />
