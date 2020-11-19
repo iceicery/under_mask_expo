@@ -4,7 +4,7 @@ import colors from '../config/colors';
 import AnimalList from '../components/AnimalList';
 
 export default function AnimalMenu() {
-    const animals = ['beary', 'honeyTing', 'elsa']
+    const animals = ['beary', 'honeyTing', 'elsa', 'kiss', 'silly', 'smile', 'zip', 'no', 'talk', 'spongbob', 'bite', 'ahh', 'scary', 'terrible', 'friday', 'yes', 'flossing', 'bek', 'smileup'];
 
     return (
         <>

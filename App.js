@@ -6,7 +6,6 @@ import AnimalMenu from './components/AnimalMenu';
 import Animal from './components/Animal';
 import Mood from './components/Mood';
 import ThemeMenu from './components/ThemeMenu';
-
 import 'react-native-gesture-handler';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
