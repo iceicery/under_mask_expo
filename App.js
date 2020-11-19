@@ -6,10 +6,11 @@ import AnimalMenu from './components/AnimalMenu';
 import Animal from './components/Animal';
 import Mood from './components/Mood';
 import ThemeMenu from './components/ThemeMenu';
-
+import Animate from './components/Animate';
 import 'react-native-gesture-handler';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
+import { Animated } from 'react-native';
 
 const Stack = createStackNavigator();
 
@@ -49,6 +50,7 @@ export default function App() {
           <Stack.Screen name="AnimalMenu" component={AnimalMenu} />
           <Stack.Screen name="Animal" component={Animal} />
           <Stack.Screen name="Mood" component={Mood} />
+          <Stack.Screen name="Animate" component={Animate} />
         </Stack.Navigator>
       </NavigationContainer>
     </moodContext.Provider>

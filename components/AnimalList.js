@@ -9,6 +9,10 @@ export default function AnimalList({ animal }) {
         beary: require('../images/beary.jpg'),
         honeyTing: require('../images/honeyTing.jpg'),
         elsa: require('../images/elsa.jpg'),
+        kiss: { uri: 'https://images.unsplash.com/photo-1579752515149-489d8d711342?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1051&q=80' }, //Joey Nicotra
+        silly: { uri: 'https://images.unsplash.com/photo-1579752515255-40a127455074?ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80' }, //Joey Nicotra
+        smile: { uri: 'https://images.unsplash.com/photo-1581939511501-4ec557ff0957?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80' }, //Marek Studzinski
+
     };
     function toTheAnimal() {
         moodData.changeAnimal(animal);
