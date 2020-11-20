@@ -2,9 +2,12 @@ import React, { useContext } from 'react';
 import { Image, StyleSheet, View } from 'react-native';
 import { moodContext } from '../contexts/moodContext';
 import { useDimensions } from '@react-native-community/hooks';
+import GestureRecognizer from 'react-native-swipe-gestures';
+import { useNavigation } from '@react-navigation/native';
 
 export default function Animal() {
     const moodData = useContext(moodContext);
+    const navigation = useNavigation();
     const AnimalImg = {
         beary: require('../images/beary.jpg'),
         honeyTing: require('../images/honeyTing.jpg'),
@@ -29,11 +32,14 @@ export default function Animal() {
     };
     const { height, width } = useDimensions().window;
     const islandscape = width > height;
+    function onSwipe() {
+        navigation.navigate('AnimalMenu');
+    }
     return (
-        <View style={styles.container}>
+        <GestureRecognizer style={styles.container} onSwipe={onSwipe}>
             <Image source={AnimalImg[moodData.animal]}
                 style={islandscape ? styles.img : styles.portrait} />
-        </View>
+        </GestureRecognizer>
     )
 }
 const styles = StyleSheet.create({

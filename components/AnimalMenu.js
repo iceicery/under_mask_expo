@@ -1,22 +1,29 @@
 import React from 'react';
-import { Text, View, StyleSheet } from 'react-native';
+import { Text, View, StyleSheet, TouchableOpacity } from 'react-native';
 import colors from '../config/colors';
 import AnimalList from '../components/AnimalList';
+import GestureRecognizer from 'react-native-swipe-gestures';
+import { useNavigation } from '@react-navigation/native';
 
 export default function AnimalMenu() {
+    const navigation = useNavigation()
     const animals = ['beary', 'honeyTing', 'elsa', 'kiss', 'silly', 'smile', 'zip', 'no', 'talk', 'spongbob', 'bite', 'ahh', 'scary', 'terrible', 'friday', 'yes', 'flossing', 'bek', 'smileup'];
+    function toThemeMenu() {
+        navigation.navigate('ThemeMenu');
+    }
 
     return (
-        <>
-            <View style={styles.menu}>
-                <Text style={styles.text}>Choose your picture:</Text>
-                <View style={styles.container}>
-                    {animals.map((animal, i) => {
-                        return <AnimalList animal={animal} key={i} />
-                    })}
-                </View>
+        <View style={styles.menu}>
+            <Text style={styles.text}>Choose one</Text>
+            <View style={styles.container}>
+                {animals.map((animal, i) => {
+                    return <AnimalList animal={animal} key={i} />
+                })}
             </View>
-        </>
+            <TouchableOpacity onPress={toThemeMenu} style={styles.button}>
+                <Text style={styles.buttontext}>Back</Text>
+            </TouchableOpacity>
+        </View>
     )
 }
 
@@ -39,11 +46,17 @@ const styles = StyleSheet.create({
         paddingLeft: 15,
     },
     buttontext: {
-        fontSize: 25,
+        fontSize: 15,
         color: colors.light,
-        padding: 15,
+        padding: 5,
+        alignItems: 'center',
     },
+
     button: {
+        position: 'absolute',
+        bottom: 10,
+        right: 10,
+        width: 100,
         alignItems: 'center',
         color: colors.light,
         backgroundColor: colors.primary,

@@ -2,10 +2,12 @@ import React, { useContext } from 'react';
 import { Image, StyleSheet, View } from 'react-native';
 import { moodContext } from '../contexts/moodContext';
 import { useDimensions } from '@react-native-community/hooks';
-//import useScreenOrientation from 'react-hook-screen-orientation'
-
+import GestureRecognizer from 'react-native-swipe-gestures';
+import { useNavigation } from '@react-navigation/native';
+//import { vw, vh, vmin, vmax } from 'react-native-expo-viewport-units';
 export default function Mood() {
     const moodData = useContext(moodContext);
+    const navigation = useNavigation();
     const moodImg = {
         Happy: require('../images/Happy.png'),
         Sad: require('../images/Sad.png'),
@@ -22,9 +24,12 @@ export default function Mood() {
     }
     const { height, width } = useDimensions().window;
     const islandscape = width > height;
+    function onSwipe() {
+        navigation.navigate('DrawMenu');
+    }
 
     return (
-        <View style={islandscape ? styles.container : styles.portrait}>
+        <GestureRecognizer style={islandscape ? styles.container : styles.portrait} onSwipe={onSwipe}>
             <Image source={noseImg[moodData.nose]}
                 style={{
                     position: 'absolute',
@@ -45,7 +50,7 @@ export default function Mood() {
                     resizeMode: 'contain',
                     tintColor: moodData.lip,
                 }} />
-        </View>
+        </GestureRecognizer>
     )
 }
 const styles = StyleSheet.create({

@@ -8,6 +8,7 @@ import SkinMenu from './SkinMenu';
 import LipMenu from './LipMenu';
 import { useNavigation } from '@react-navigation/native';
 import { useDimensions } from '@react-native-community/hooks';
+
 export default function DrawMenu() {
     const navigation = useNavigation();
     const moodData = useContext(moodContext);
@@ -33,6 +34,9 @@ export default function DrawMenu() {
 
     function toMood() {
         navigation.navigate('Mood');
+    }
+    function toThemeMenu() {
+        navigation.navigate('ThemeMenu');
     }
     const { height, width } = useDimensions().window;
     const islandscape = width > height;
@@ -64,29 +68,34 @@ export default function DrawMenu() {
                     })}
                 </View>
             </View>
-            <TouchableOpacity style={islandscape ? styles.containerImgLand : styles.containerImg} onPress={toMood}>
-                <Image source={noseImg[moodData.nose]}
-                    style={{
-                        position: 'absolute',
-                        top: 0,
-                        right: 0,
-                        left: 0,
-                        zIndex: 1,
-                        width: '100%',
-                        height: '100%',
-                        resizeMode: 'contain',
-                        tintColor: "#000",
-                    }} />
-                <Image source={moodImg[moodData.mood]}
-                    style={{
-                        backgroundColor: moodData.skin,
-                        width: '100%',
-                        height: '100%',
-                        resizeMode: 'contain',
-                        tintColor: moodData.lip,
+            <View style={{ flex: 1 }}>
+                <TouchableOpacity style={islandscape ? styles.containerImgLand : styles.containerImg} onPress={toMood}>
+                    <Image source={noseImg[moodData.nose]}
+                        style={{
+                            position: 'absolute',
+                            top: 0,
+                            right: 0,
+                            left: 0,
+                            zIndex: 1,
+                            width: '100%',
+                            height: '100%',
+                            resizeMode: 'contain',
+                            tintColor: "#000",
+                        }} />
+                    <Image source={moodImg[moodData.mood]}
+                        style={{
+                            backgroundColor: moodData.skin,
+                            width: '100%',
+                            height: '100%',
+                            resizeMode: 'contain',
+                            tintColor: moodData.lip,
 
-                    }} />
-            </TouchableOpacity>
+                        }} />
+                </TouchableOpacity>
+                <TouchableOpacity onPress={toThemeMenu} style={styles.button}>
+                    <Text style={styles.buttontext}>Back</Text>
+                </TouchableOpacity>
+            </View>
         </View>
     )
 }
@@ -125,11 +134,17 @@ const styles = StyleSheet.create({
         marginBottom: 0,
     },
     buttontext: {
-        fontSize: 25,
+        fontSize: 15,
         color: colors.light,
-        padding: 15,
+        padding: 5,
+        alignItems: 'center',
     },
+
     button: {
+        position: 'absolute',
+        bottom: 10,
+        right: 10,
+        width: 100,
         alignItems: 'center',
         color: colors.light,
         backgroundColor: colors.primary,

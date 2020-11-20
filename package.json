@@ -19,9 +19,12 @@
     "react-dom": "16.13.1",
     "react-hook-screen-orientation": "^1.0.1",
     "react-native": "https://github.com/expo/react-native/archive/sdk-39.0.4.tar.gz",
+    "react-native-expo-viewport-units": "0.0.8",
     "react-native-gesture-handler": "^1.8.0",
     "react-native-safe-area-context": "^3.1.8",
     "react-native-screens": "^2.14.0",
+    "react-native-swipe-gestures": "^1.0.5",
+    "react-native-viewport-units": "0.0.5",
     "react-native-web": "~0.13.12"
   },
   "devDependencies": {
